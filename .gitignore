@@ -1,0 +1,29 @@
+# Entornos virtuales
+venv/
+.venv/
+env/
+
+# Bytecode / cache de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Artefactos de PyInstaller
+build/
+dist/
+*.spec.bak
+
+# Archivos generados por el usuario al usar la app
+*.xlsx
+!assets/*.xlsx
+sombreado_curvas.png
+curvas_IV_PV.png
+
+# Entornos / editores
+.vscode/
+.idea/
+*.log
+
+# Sistema operativo
+Thumbs.db
+.DS_Store
