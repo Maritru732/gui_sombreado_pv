@@ -710,9 +710,9 @@ class VentanaPrincipal(QMainWindow):
         filas = self.filas_panel
         columnas = self.columnas_panel  
  
-        print(f"diodos: {diodos}")
-        print(f"isc: {isc}")
-        print(f"ki: {ki}")
+        # print(f"diodos: {diodos}")
+        # print(f"isc: {isc}")
+        # print(f"ki: {ki}")
 
         if columnas % diodos != 0:
             QMessageBox.warning(
@@ -725,12 +725,12 @@ class VentanaPrincipal(QMainWindow):
         segmento = columnas // diodos
         patron = [segmento] * diodos
 
-        print("Patrón generado:", patron)
+        # print("Patrón generado:", patron)
 
-        print(f"filas: {filas}, columnas: {columnas}")
-        print(f"Rs: {self.Rs}, Rsh: {self.Rp}, Rp: {self.Rp} , Isat2_T0: {self.Isat2_T0}, ki: {ki}")
-        print(f"Isc: {isc}, Rs: {self.Rs}, Rp: {self.Rp} , Isat1_T0: {self.Isat1_T0}")
-        print(f"aRBD: {self.aRBD}, VRBD: {self.VRBD} , nRBD: {self.nRBD}")
+        # print(f"filas: {filas}, columnas: {columnas}")
+        # print(f"Rs: {self.Rs}, Rsh: {self.Rp}, Rp: {self.Rp} , Isat2_T0: {self.Isat2_T0}, ki: {ki}")
+        # print(f"Isc: {isc}, Rs: {self.Rs}, Rp: {self.Rp} , Isat1_T0: {self.Isat1_T0}")
+        # print(f"aRBD: {self.aRBD}, VRBD: {self.VRBD} , nRBD: {self.nRBD}")
 
         # CREAR MODELO PVMISMATCH
         from pvmismatch import pvconstants, pvcell, pvmodule, pvstring, pvsystem
@@ -991,9 +991,9 @@ class VentanaPrincipal(QMainWindow):
     
                             indices.append(idx)
                             irradiancias.append(val)
-                            print(f"Celda sombreada = fila:{r}, col:{c}, indice:{idx}, valor:{val:.3f}")
+                            #print(f"Celda sombreada = fila:{r}, col:{c}, indice:{idx}, valor:{val:.3f}")
     
-                print(f"irradiancias: {tuple(irradiancias)}, indices: {tuple(indices)}")
+                #print(f"irradiancias: {tuple(irradiancias)}, indices: {tuple(indices)}")
                 if len(indices) > 0:
                     self.pvsys.setSuns({
                         0: {0: [tuple(irradiancias), tuple(indices)]}
@@ -1008,14 +1008,14 @@ class VentanaPrincipal(QMainWindow):
             self.pvsys.update()
             # ───────────────────────────────────────────────────────────
     
-            print("Atributos pvsys:", [a for a in dir(self.pvsys) if not a.startswith('_')])
+            #print("Atributos pvsys:", [a for a in dir(self.pvsys) if not a.startswith('_')])
             #Obtener curvas
             P = self.pvsys.Psys
-            print(f"P: {P}")
+            #print(f"P: {P}")
             V = self.pvsys.Vsys
-            print(f"V: {V}")
+            #print(f"V: {V}")
             I = self.pvsys.Isys
-            print(f"I: {I}")
+            #print(f"I: {I}")
     
             # Filtrar valores negativos de potencia
             P = np.array(P).flatten()
